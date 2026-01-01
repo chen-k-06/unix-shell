@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "parser.h"
 #include "execute.h"
-#define BUF_SIZE 128
+#define BUF_SIZE 1024
 
 void print_prompt(void)
 {
@@ -22,9 +22,9 @@ void shell_loop(void)
         print_prompt();
 
         char in[BUF_SIZE];
-        char out[BUF_SIZE];
+        char *argv[BUF_SIZE];
         read_input(in, BUF_SIZE);
-        parse_command(out, in, BUF_SIZE);
+        int argc = parse_command(argv, in, BUF_SIZE);
         // execute_command();
     }
 }
