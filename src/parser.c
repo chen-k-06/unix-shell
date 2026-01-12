@@ -1,10 +1,13 @@
 #include <stdio.h>
 #define MAX_ARGS 64
+#include <stdbool.h>
 
 int parse_command(char **argv, char *inbuf, size_t size)
 {
     int argc = 0;
     char *p = inbuf;
+    bool inQuotes = false;
+
     while (*p != '\0')
     {
         // skip leading whitespace
@@ -24,8 +27,15 @@ int parse_command(char **argv, char *inbuf, size_t size)
             break;
         }
 
+        // quotes handler
+        // if (!inQuotes && *p == """)
+        // {
+
+        // }
+
         // walk through current argument
-        argv[argc++] = p;
+        argv
+            [argc++] = p;
         while (*p != '\0' && !isspace((unsigned char)*p))
         {
             p++;

@@ -25,6 +25,6 @@ void shell_loop(void)
         char *argv[BUF_SIZE];
         read_input(in, BUF_SIZE);
         int argc = parse_command(argv, in, BUF_SIZE);
-        // execute_command();
+        execute_command(argv);
     }
 }
